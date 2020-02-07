@@ -25,4 +25,5 @@ categoriesSchema.pre('findOne', function () {
   }
 });
 
+
 module.exports = mongoose.model('categories', categoriesSchema);
