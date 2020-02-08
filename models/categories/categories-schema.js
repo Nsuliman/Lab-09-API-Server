@@ -2,27 +2,27 @@
 'use strict';
 
 const mongoose = require('mongoose');
-require('./categories.js');
+require('../products/products-schema.js');
 
-const categoriesSchema = mongoose.Schema({
+const categories = mongoose.Schema({
   name: { type: String, required: true },
   display_name: { type: String, required: true },
   description: { type: String },
 }, { toObject: { virtuals: true }, toJson: { virtuals: true } });
 
-categoriesSchema.virtual('products', {
+categories.virtual('productV', {
   ref: 'products',
   localField: 'name',
   foreignField: 'category',
   justOne: false,
 });
 
-categoriesSchema.pre('findOne', function () {
+categories.pre('findOne', function () {
   try {
-    this.populate('products');
+    this.populate('productV');
   } catch (err) {
     console.error(err);
   }
 });
 
-module.exports = mongoose.model('categories', categoriesSchema);
+module.exports = mongoose.model('categories', categories);

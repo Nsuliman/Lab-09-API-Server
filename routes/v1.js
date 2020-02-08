@@ -13,11 +13,11 @@ function getModel(req, res, next) {
   switch (model) {
   case 'categories':
     req.model = categories;
-    // next();
+    next();
     return;
   case 'products':
     req.model = products;
-    // next();
+    next();
     return;
   default:
     next('invalid');
