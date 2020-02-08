@@ -9,13 +9,21 @@ const categories = mongoose.Schema({
   display_name: { type: String, required: true },
   description: { type: String },
 }, { toObject: { virtuals: true }, toJson: { virtuals: true } });
-
+/**
+ * virtual modleing for categories
+ */
 categories.virtual('productV', {
   ref: 'products',
   localField: 'name',
   foreignField: 'category',
   justOne: false,
 });
+
+
+/**
+ * the (pre) hook method to invoke callback function 
+ */
+
 
 categories.pre('findOne', function () {
   try {
