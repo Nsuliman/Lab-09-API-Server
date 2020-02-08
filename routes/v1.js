@@ -35,9 +35,9 @@ router.delete('/:model/:id', deleteModel);
 
 
 function createModel(req, res, next) {
-    req.model.create(req.body)
+  req.model.create(req.body)
     .then(results => {
-        res.status(201).json(results);
+      res.status(201).json(results);
     })
     .catch(next);
 }
@@ -59,10 +59,10 @@ function handlerAllModel(req, res, next) {
 
 
 function updateModel(req, res, next) {
-    let _id = req.params.id;
-    req.model.update(_id, req.body)
+  let _id = req.params.id;
+  req.model.update(_id, req.body)
     .then(results => {
-        res.status(201).json(results);
+      res.status(201).json(results);
     })
     .catch(next);
 }
@@ -82,9 +82,9 @@ function oneModelGet(req, res, next) {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function deleteModel(req, res, next) {
-    let message = 'deleted';
-    let _id = req.params.id;
-    req.model.delete(_id)
+  let message = 'deleted';
+  let _id = req.params.id;
+  req.model.delete(_id)
     .then(() => {
       res.status(201).json({ confirm: message });
     })

@@ -16,7 +16,7 @@ const mongooseOptions = {
 
 // mongoose.connect(MONGODB_URI)
 mongoose.connect(MONGODB_URI, mongooseOptions)
-.then(() => {
+  .then(() => {
     console.log('Database connected');    //successfully connect
   })
   .catch((error) => {

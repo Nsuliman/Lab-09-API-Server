@@ -6,9 +6,9 @@ const Model = require('../mongo.js');
 
 class Products extends Model {
 
-    constructor() {
-        super(schema);
-      }
+  constructor() {
+    super(schema);
+  }
 }
 
 module.exports = Products;
